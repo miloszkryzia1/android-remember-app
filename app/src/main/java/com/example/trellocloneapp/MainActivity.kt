@@ -14,5 +14,7 @@ class MainActivity : AppCompatActivity() {
         args.putString("name", "Test Bard")
         boardFragment.arguments = args
         supportFragmentManager.beginTransaction().add(R.id.homePageFrame, boardFragment).commit()
+
+
     }
 }
