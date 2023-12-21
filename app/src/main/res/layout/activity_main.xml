@@ -28,7 +28,6 @@
             app:layout_constraintTop_toTopOf="parent"
             android:fontFamily="@font/urbanist"/>
 
-        <!-- TODO FRAGMENT IS GONNA BE A CARD VIEW - CHANGE BG AS NECESSARY -->
         <FrameLayout
             android:id="@+id/homePageFrame"
             android:layout_width="296dp"
