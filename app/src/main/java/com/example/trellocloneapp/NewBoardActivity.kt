@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.Spinner
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 
@@ -25,6 +27,11 @@ class NewBoardActivity : AppCompatActivity() {
         //Cancel button func
         val cancelBtn = findViewById<Button>(R.id.cancelButton)
         cancelBtn.setOnClickListener{ cancelButtonPressed() }
+
+        //color picker
+        val colorList = listOf(R.color.brdColor1, R.color.brdColor2, R.color.brdColor3, R.color.brdColor4, R.color.brdColor5)
+        val colorPicker = findViewById<Spinner>(R.id.colorPickSpinner)
+        colorPicker.adapter = ColorPickerAdapter(this, colorList)
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {

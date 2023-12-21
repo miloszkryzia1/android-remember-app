@@ -5,4 +5,11 @@
     <color name="main_bg">#575757</color>
     <color name="second_bg">#757575</color>
     <color name="primary">#55BAFA</color>
+
+    <!-- BOARD COLORS -->
+    <color name="brdColor1">#5ca7cc</color>
+    <color name="brdColor2">#5ccc96</color>
+    <color name="brdColor3">#d9c13d</color>
+    <color name="brdColor4">#d9543d</color>
+    <color name="brdColor5">#9e61c9</color>
 </resources>
