@@ -3,6 +3,5 @@ package com.example.trellocloneapp
 data class TaskModel(
     var name: String,
     var description: String,
-    var category: CategoryModel
+    var label: LabelModel
 )
-//TODO: ADD CATEGORY PARAM
