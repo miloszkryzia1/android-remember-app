@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="196dp"
             android:backgroundTint="@color/primary"
-            android:text="@string/create"
+            android:text="Create New Board"
             android:textSize="12pt"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
