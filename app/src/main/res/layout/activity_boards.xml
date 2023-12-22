@@ -18,7 +18,7 @@
         android:fontFamily="@font/urbanist"
         android:text="Boards"
         android:textColor="@color/white"
-        android:textSize="15.1pt"
+        android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -45,7 +45,8 @@
         android:backgroundTint="@color/primary"
         android:fontFamily="@font/urbanist"
         android:text="+"
-        android:textSize="12pt"
+        android:textSize="30sp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView" />

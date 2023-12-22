@@ -20,7 +20,7 @@
 
     <style name="navMenuTextAppearance">
         <item name="android:fontFamily">@font/urbanist</item>
-        <item name="android:textSize">12pt</item>
+        <item name="android:textSize">30sp</item>
     </style>
 
     <style name="drawerArrowStyleWhite" parent="@style/Widget.AppCompat.DrawerArrowToggle">

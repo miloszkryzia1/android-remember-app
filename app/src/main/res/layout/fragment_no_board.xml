@@ -30,7 +30,7 @@
                     android:fontFamily="@font/urbanist"
                     android:text="No Boards to Show"
                     android:textColor="@color/main_bg"
-                    android:textSize="10pt"
+                    android:textSize="26.5sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 

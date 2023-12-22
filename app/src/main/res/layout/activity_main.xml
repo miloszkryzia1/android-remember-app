@@ -21,7 +21,7 @@
             android:layout_marginTop="44dp"
             android:text="Most Recent Board"
             android:textColor="@color/white"
-            android:textSize="15.1pt"
+            android:textSize="40sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.141"
             app:layout_constraintStart_toStartOf="parent"
@@ -46,12 +46,13 @@
             android:layout_marginBottom="196dp"
             android:backgroundTint="@color/primary"
             android:text="Create New Board"
-            android:textSize="12pt"
+            android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            android:fontFamily="@font/urbanist"/>
+            android:fontFamily="@font/urbanist"
+            android:textColor="@color/white"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,7 +25,7 @@
             android:fontFamily="@font/urbanist"
             android:text="Name"
             android:textColor="@color/white"
-            android:textSize="12pt"
+            android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/colorPickSpinner"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -43,7 +43,7 @@
             android:inputType="text"
             android:textColor="@color/white"
             android:textColorHint="@color/second_bg"
-            android:textSize="18pt"
+            android:textSize="45sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -57,7 +57,7 @@
             android:fontFamily="@font/urbanist"
             android:text="Color"
             android:textColor="@color/white"
-            android:textSize="12pt"
+            android:textSize="30sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/boardNameEditText" />
 
@@ -72,7 +72,8 @@
             android:backgroundTint="@color/second_bg"
             android:fontFamily="@font/urbanist"
             android:text="@string/cancel"
-            android:textSize="12pt"
+            android:textSize="30sp"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/createButton"
             app:layout_constraintStart_toStartOf="parent" />
@@ -84,7 +85,8 @@
             android:backgroundTint="@color/primary"
             android:fontFamily="@font/urbanist"
             android:text="@string/create"
-            android:textSize="12pt"
+            android:textSize="30sp"
+            android:textColor="@color/white"
             app:layout_constraintBaseline_toBaselineOf="@+id/cancelButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cancelButton" />
