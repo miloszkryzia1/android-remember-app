@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 
 class BoardFragment : Fragment() {
@@ -22,7 +23,14 @@ class BoardFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_board, container, false)
         view.findViewById<TextView>(R.id.boardName).text = name
-        //TODO: Set the color of category
+        val colorImg = view.findViewById<ImageView>(R.id.colorImg)
+        when (color) {
+            R.color.brdColor1 -> colorImg.setImageResource(R.drawable.brd_color_shape_1)
+            R.color.brdColor2 -> colorImg.setImageResource(R.drawable.brd_color_shape_2)
+            R.color.brdColor3 -> colorImg.setImageResource(R.drawable.brd_color_shape_3)
+            R.color.brdColor4 -> colorImg.setImageResource(R.drawable.brd_color_shape_4)
+            R.color.brdColor5 -> colorImg.setImageResource(R.drawable.brd_color_shape_5)
+        }
         return view
     }
 }

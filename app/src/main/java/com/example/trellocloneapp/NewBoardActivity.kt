@@ -65,6 +65,7 @@ class NewBoardActivity : AppCompatActivity() {
     }
 
     private fun cancelButtonPressed() {
+        //TODO: ADD MORE PAGES TO GO BACK TO AS NEEDED
         when (intent.extras?.getString("previous")) {
             "main" -> {
                 intent = Intent(this, MainActivity::class.java)
@@ -82,12 +83,15 @@ class NewBoardActivity : AppCompatActivity() {
                 color = currentColor!!,
                 tasks = emptyList()
             )
+            MainActivity.mostRecentBoard = board
             MainActivity.boardList.add(board)
         }
         else {
             Toast.makeText(this, "You must enter a board name!", Toast.LENGTH_SHORT).show()
         }
 
-        //TODO: OPEN NEWLY CREATED BOARD
+        //TODO: CHANGE TO OPEN NEWLY CREATED BOARD
+        intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 }

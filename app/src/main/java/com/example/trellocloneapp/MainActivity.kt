@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         val boardList = mutableListOf<BoardModel>()
+        var mostRecentBoard: BoardModel? = null
     }
 
     private lateinit var navMenuToggle: ActionBarDrawerToggle
@@ -21,12 +22,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Set fragment for most recent board
-        // TODO: This is only for testing the layout, change in the future
-        val boardFragment = BoardFragment()
-        val args: Bundle = Bundle()
-        args.putString("name", "Test Bard")
-        boardFragment.arguments = args
-        supportFragmentManager.beginTransaction().add(R.id.homePageFrame, boardFragment).commit()
+        val trans = supportFragmentManager.beginTransaction()
+        if (mostRecentBoard == null) {
+            trans.add(R.id.homePageFrame, NoBoardFragment()).commit()
+        }
+        else {
+            val args = Bundle()
+            args.putString("name", mostRecentBoard!!.name)
+            args.putInt("color", mostRecentBoard!!.color)
+            val boardFrag = BoardFragment()
+            boardFrag.arguments = args
+            trans.add(R.id.homePageFrame, boardFrag).commit()
+        }
 
         //Navigation Drawer
         val drawer = findViewById<DrawerLayout>(R.id.mainDrawer)
