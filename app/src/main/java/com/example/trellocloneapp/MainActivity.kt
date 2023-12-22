@@ -7,6 +7,8 @@ import android.view.MenuItem
 import android.widget.Button
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.trellocloneapp.fragments.BoardFragment
+import com.example.trellocloneapp.fragments.NoBoardFragment
 import com.example.trellocloneapp.models.BoardModel
 
 class MainActivity : AppCompatActivity() {

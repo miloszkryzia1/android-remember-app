@@ -1,10 +1,11 @@
-package com.example.trellocloneapp
+package com.example.trellocloneapp.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.trellocloneapp.R
 
 class NoBoardFragment : Fragment() {
 
