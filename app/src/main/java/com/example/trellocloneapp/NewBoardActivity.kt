@@ -85,13 +85,13 @@ class NewBoardActivity : AppCompatActivity() {
             )
             MainActivity.mostRecentBoard = board
             MainActivity.boardList.add(board)
+
+            //TODO: CHANGE TO OPEN NEWLY CREATED BOARD
+            intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
         else {
             Toast.makeText(this, "You must enter a board name!", Toast.LENGTH_SHORT).show()
         }
-
-        //TODO: CHANGE TO OPEN NEWLY CREATED BOARD
-        intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
     }
 }

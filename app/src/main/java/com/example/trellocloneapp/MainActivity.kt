@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             val args = Bundle()
             args.putString("name", mostRecentBoard!!.name)
             args.putInt("color", mostRecentBoard!!.color)
-            val boardFrag = BoardFragment()
+            val boardFrag = BoardFragment(mostRecentBoard!!)
             boardFrag.arguments = args
             trans.add(R.id.homePageFrame, boardFrag).commit()
         }

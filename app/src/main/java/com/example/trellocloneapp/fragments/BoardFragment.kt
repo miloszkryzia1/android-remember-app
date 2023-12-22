@@ -8,8 +8,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.trellocloneapp.R
+import com.example.trellocloneapp.models.BoardModel
 
-class BoardFragment : Fragment() {
+class BoardFragment(var board: BoardModel) : Fragment() {
     private var name: String? = null
     private var color: Int? = null
 
@@ -32,6 +33,9 @@ class BoardFragment : Fragment() {
             R.color.brdColor4 -> colorImg.setImageResource(R.drawable.brd_color_shape_4)
             R.color.brdColor5 -> colorImg.setImageResource(R.drawable.brd_color_shape_5)
         }
+
+        // TODO: SET ON CLICK LISTENER TO OPEN BOARD
+
         return view
     }
 }
