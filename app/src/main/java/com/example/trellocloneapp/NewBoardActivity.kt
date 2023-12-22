@@ -9,9 +9,12 @@ import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.trellocloneapp.models.BoardModel
 
 class NewBoardActivity : AppCompatActivity() {
 
@@ -31,6 +34,7 @@ class NewBoardActivity : AppCompatActivity() {
         //color picker
         val colorList = listOf(R.color.brdColor1, R.color.brdColor2, R.color.brdColor3, R.color.brdColor4, R.color.brdColor5)
         val colorPicker = findViewById<Spinner>(R.id.colorPickSpinner)
+        currentColor = colorList[0]
         colorPicker.adapter = ColorPickerAdapter(this, colorList)
         colorPicker.onItemSelectedListener = object : OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -42,6 +46,10 @@ class NewBoardActivity : AppCompatActivity() {
         //Cancel button func
         val cancelBtn = findViewById<Button>(R.id.cancelButton)
         cancelBtn.setOnClickListener{ cancelButtonPressed() }
+
+        //Create button func
+        val createBtn = findViewById<Button>(R.id.createButton)
+        createBtn.setOnClickListener{ createNewBoard() }
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
@@ -66,6 +74,20 @@ class NewBoardActivity : AppCompatActivity() {
     }
 
     private fun createNewBoard() {
-        //TODO: IMPLEMENT WHERE BOARDS ARE STORED AND HOW TO ADD ONE
+        val bNameEdt = findViewById<EditText>(R.id.boardNameEditText)
+        if (bNameEdt.text?.toString() != "") {
+            val brdName = bNameEdt.text.toString()
+            val board = BoardModel(
+                name = brdName,
+                color = currentColor!!,
+                tasks = emptyList()
+            )
+            MainActivity.boardList.add(board)
+        }
+        else {
+            Toast.makeText(this, "You must enter a board name!", Toast.LENGTH_SHORT).show()
+        }
+
+        //TODO: OPEN NEWLY CREATED BOARD
     }
 }

@@ -7,11 +7,15 @@ import android.view.MenuItem
 import android.widget.Button
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.trellocloneapp.models.BoardModel
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var navMenuToggle: ActionBarDrawerToggle
+    companion object {
+        val boardList = mutableListOf<BoardModel>()
+    }
 
+    private lateinit var navMenuToggle: ActionBarDrawerToggle
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
