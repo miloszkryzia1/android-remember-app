@@ -10,6 +10,8 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.example.trellocloneapp.fragments.BoardFragment
 import com.example.trellocloneapp.fragments.NoBoardFragment
 import com.example.trellocloneapp.models.BoardModel
+import com.google.android.material.navigation.NavigationView
+import com.google.android.material.navigation.NavigationView.OnNavigationItemSelectedListener
 
 class MainActivity : AppCompatActivity() {
 
@@ -42,6 +44,13 @@ class MainActivity : AppCompatActivity() {
         navMenuToggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
         drawer.addDrawerListener(navMenuToggle)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        val navMenu = findViewById<NavigationView>(R.id.navView)
+        navMenu.setNavigationItemSelectedListener {
+            intent = Intent(this, BoardsActivity::class.java)
+            startActivity(intent)
+            true
+        }
 
         //Button func
         val btn = findViewById<Button>(R.id.homePageButton)

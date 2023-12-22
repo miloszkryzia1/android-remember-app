@@ -7,13 +7,13 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
-import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.trellocloneapp.adapters.ColorPickerAdapter
 import com.example.trellocloneapp.models.BoardModel
 
 class NewBoardActivity : AppCompatActivity() {
@@ -35,7 +35,7 @@ class NewBoardActivity : AppCompatActivity() {
         val colorList = listOf(R.color.brdColor1, R.color.brdColor2, R.color.brdColor3, R.color.brdColor4, R.color.brdColor5)
         val colorPicker = findViewById<Spinner>(R.id.colorPickSpinner)
         currentColor = colorList[0]
-        colorPicker.adapter = ColorPickerAdapter(this, colorList)
+        colorPicker.adapter = ColorPickerAdapter(colorList)
         colorPicker.onItemSelectedListener = object : OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 currentColor = colorList[position]

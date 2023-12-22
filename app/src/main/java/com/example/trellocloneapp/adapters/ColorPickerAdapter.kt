@@ -1,16 +1,13 @@
-package com.example.trellocloneapp
+package com.example.trellocloneapp.adapters
 
-import android.app.Activity
-import android.graphics.drawable.Drawable
-import android.graphics.drawable.ShapeDrawable
-import android.graphics.drawable.shapes.Shape
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
-import android.widget.TextView
+import com.example.trellocloneapp.R
 
-class ColorPickerAdapter(private var activity: Activity, private var items: List<Int>): BaseAdapter() {
+class ColorPickerAdapter(private var items: List<Int>): BaseAdapter() {
     override fun getCount(): Int {
         return items.size
     }
@@ -27,7 +24,7 @@ class ColorPickerAdapter(private var activity: Activity, private var items: List
         val view: View
 
         if (convertView == null) {
-            view = activity.layoutInflater.inflate(R.layout.color_picker_item, parent, false)
+            view = LayoutInflater.from(parent?.context).inflate(R.layout.color_picker_item, parent, false)
         }
         else {
             view = convertView

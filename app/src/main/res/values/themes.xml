@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.TrelloCloneApp" parent="Theme.Material3.DayNight">
+    <style name="Base.Theme.TrelloCloneApp" parent="Theme.Material3.Dark">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
@@ -26,5 +26,7 @@
     <style name="drawerArrowStyleWhite" parent="@style/Widget.AppCompat.DrawerArrowToggle">
         <item name="color">@color/white</item>
     </style>
+
+    <!--TODO: CHANGE BACK ARROW COLOR TO WHITE -->
 
 </resources>
