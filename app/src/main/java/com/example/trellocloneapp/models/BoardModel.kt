@@ -1,4 +1,4 @@
-package com.example.trellocloneapp
+package com.example.trellocloneapp.models
 
 data class BoardModel(
     var name: String,
