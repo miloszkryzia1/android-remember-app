@@ -16,6 +16,7 @@ import androidx.core.app.NavUtils
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.trellocloneapp.adapters.ColorPickerAdapter
 import com.example.trellocloneapp.models.BoardModel
+import com.example.trellocloneapp.models.TaskModel
 import kotlin.random.Random
 
 class NewBoardActivity : AppCompatActivity() {
@@ -74,7 +75,7 @@ class NewBoardActivity : AppCompatActivity() {
             val board = BoardModel(
                 name = brdName,
                 color = currentColor!!,
-                tasks = emptyList(),
+                tasks = mutableListOf<TaskModel>(),
                 id = brdId
             )
             MainActivity.mostRecentBoard = board

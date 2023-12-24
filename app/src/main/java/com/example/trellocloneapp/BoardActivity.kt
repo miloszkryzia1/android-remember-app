@@ -7,6 +7,11 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.trellocloneapp.adapters.TaskListAdapter
+import com.example.trellocloneapp.models.LabelModel
+import com.example.trellocloneapp.models.TaskModel
 
 class BoardActivity : AppCompatActivity() {
 
@@ -38,6 +43,19 @@ class BoardActivity : AppCompatActivity() {
 
 
         //TODO LOGIC FOR RECYCLER VIEW
+        val recView = findViewById<RecyclerView>(R.id.tasksRecView)
+        recView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+
+        //TODO: TEMP LIST FOR TESTING
+        taskList.addAll(
+            listOf(
+                TaskModel("chuj" ,"chuj", LabelModel("testlabel", R.color.white)),
+                TaskModel("chuj" ,"chuj", LabelModel("testlabel", R.color.white)),
+                TaskModel("chuj" ,"chuj", LabelModel("testlabel", R.color.white)),
+                TaskModel("chuj" ,"chuj", LabelModel("testlabel", R.color.white)))
+        )
+
+        recView.adapter = TaskListAdapter(taskList)
 
     }
 
