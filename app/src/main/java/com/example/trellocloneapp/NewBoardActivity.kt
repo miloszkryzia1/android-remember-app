@@ -16,6 +16,7 @@ import androidx.core.app.NavUtils
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.trellocloneapp.adapters.ColorPickerAdapter
 import com.example.trellocloneapp.models.BoardModel
+import kotlin.random.Random
 
 class NewBoardActivity : AppCompatActivity() {
 
@@ -55,6 +56,10 @@ class NewBoardActivity : AppCompatActivity() {
                 intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }
+            "boards" -> {
+                intent = Intent(this, BoardsListActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 
@@ -62,16 +67,24 @@ class NewBoardActivity : AppCompatActivity() {
         val bNameEdt = findViewById<EditText>(R.id.boardNameEditText)
         if (bNameEdt.text?.toString() != "") {
             val brdName = bNameEdt.text.toString()
+            var brdId = Random.nextInt()
+            while (MainActivity.boardList.find { it.id == brdId } != null) {
+                brdId = Random.nextInt()
+            }
             val board = BoardModel(
                 name = brdName,
                 color = currentColor!!,
-                tasks = emptyList()
+                tasks = emptyList(),
+                id = brdId
             )
             MainActivity.mostRecentBoard = board
             MainActivity.boardList.add(board)
 
-            //TODO: CHANGE TO OPEN NEWLY CREATED BOARD
-            intent = Intent(this, MainActivity::class.java)
+            //Open newly created board
+            intent = Intent(this, BoardActivity::class.java)
+            intent.putExtra("boardName", board.name)
+            intent.putExtra("previous", "boards")
+            intent.putExtra("boardId", board.id)
             startActivity(intent)
         }
         else {
@@ -84,6 +97,10 @@ class NewBoardActivity : AppCompatActivity() {
         when (intent.extras?.getString("previous")) {
             "main" -> {
                 intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+            "boards" -> {
+                intent = Intent(this, BoardsListActivity::class.java)
                 startActivity(intent)
             }
         }

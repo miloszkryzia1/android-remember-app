@@ -10,6 +10,7 @@
         <item name="android:statusBarColor">@color/primary</item>
         <item name="titleTextColor">@color/white</item>
         <item name="drawerArrowStyle">@style/drawerArrowStyleWhite</item>
+        <item name="title">Remember</item>
     </style>
 
     <style name="customActionBarTheme">
