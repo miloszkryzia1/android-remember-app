@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity() {
         val navMenu = findViewById<NavigationView>(R.id.navView)
         navMenu.setNavigationItemSelectedListener {
             intent = Intent(this, BoardsActivity::class.java)
+            intent.putExtra("previous", "main")
             startActivity(intent)
             true
         }

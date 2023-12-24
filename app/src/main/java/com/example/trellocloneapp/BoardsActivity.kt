@@ -27,8 +27,4 @@ class BoardsActivity : AppCompatActivity() {
 
     }
 
-    override fun onNavigateUp(): Boolean {
-        //TODO: NAVIGATE TO HOME PAGE
-        return super.onNavigateUp()
-    }
 }

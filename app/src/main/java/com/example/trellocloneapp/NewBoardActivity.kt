@@ -12,23 +12,19 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.app.NavUtils
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.trellocloneapp.adapters.ColorPickerAdapter
 import com.example.trellocloneapp.models.BoardModel
 
 class NewBoardActivity : AppCompatActivity() {
 
-    private lateinit var navMenuToggle: ActionBarDrawerToggle
     private var currentColor: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_board)
 
-        //Nav menu toggle setup
-        val drawer = findViewById<DrawerLayout>(R.id.newBoardDrawer)
-        navMenuToggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
-        drawer.addDrawerListener(navMenuToggle)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         //color picker
@@ -50,18 +46,6 @@ class NewBoardActivity : AppCompatActivity() {
         //Create button func
         val createBtn = findViewById<Button>(R.id.createButton)
         createBtn.setOnClickListener{ createNewBoard() }
-    }
-
-    override fun onPostCreate(savedInstanceState: Bundle?) {
-        super.onPostCreate(savedInstanceState)
-        navMenuToggle.syncState()
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (navMenuToggle.onOptionsItemSelected(item)) {
-            return true
-        }
-        return super.onOptionsItemSelected(item)
     }
 
     private fun cancelButtonPressed() {
@@ -93,5 +77,17 @@ class NewBoardActivity : AppCompatActivity() {
         else {
             Toast.makeText(this, "You must enter a board name!", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        //TODO: ADD MORE PAGES TO GO BACK TO AS NEEDED
+        when (intent.extras?.getString("previous")) {
+            "main" -> {
+                intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        return true
+        //return super.onOptionsItemSelected(item)
     }
 }
