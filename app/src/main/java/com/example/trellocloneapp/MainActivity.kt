@@ -11,7 +11,6 @@ import com.example.trellocloneapp.fragments.BoardFragment
 import com.example.trellocloneapp.fragments.NoBoardFragment
 import com.example.trellocloneapp.models.BoardModel
 import com.google.android.material.navigation.NavigationView
-import com.google.android.material.navigation.NavigationView.OnNavigationItemSelectedListener
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         // Set fragment for most recent board
         val trans = supportFragmentManager.beginTransaction()
         if (mostRecentBoard == null) {
-            trans.add(R.id.homePageFrame, NoBoardFragment()).commit()
+            trans.add(R.id.mostRecentBoardFrame, NoBoardFragment()).commit()
         }
         else {
             val args = Bundle()
@@ -36,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             args.putInt("color", mostRecentBoard!!.color)
             val boardFrag = BoardFragment(mostRecentBoard!!)
             boardFrag.arguments = args
-            trans.add(R.id.homePageFrame, boardFrag).commit()
+            trans.add(R.id.mostRecentBoardFrame, boardFrag).commit()
         }
 
         //Navigation Drawer

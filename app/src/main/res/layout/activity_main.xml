@@ -29,7 +29,7 @@
             android:fontFamily="@font/urbanist"/>
 
         <FrameLayout
-            android:id="@+id/homePageFrame"
+            android:id="@+id/mostRecentBoardFrame"
             android:layout_width="296dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="44dp"
