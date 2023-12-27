@@ -1,69 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="BoardPageTheme1" parent="Base.Theme.TrelloCloneApp">
+    <style name="BoardPageTheme1" parent="Theme.TrelloCloneApp">
         <item name="actionBarTheme">@style/customActionBarTheme1</item>
         <item name="android:statusBarColor">@color/brdColor1</item>
-        <item name="titleTextColor">@color/white</item>
-        <item name="drawerArrowStyle">@style/drawerArrowStyleWhite</item>
     </style>
 
-    <style name="BoardPageTheme2" parent="Base.Theme.TrelloCloneApp">
+    <style name="BoardPageTheme2" parent="Theme.TrelloCloneApp">
         <item name="actionBarTheme">@style/customActionBarTheme2</item>
         <item name="android:statusBarColor">@color/brdColor2</item>
-        <item name="titleTextColor">@color/brdColor2</item>
-        <item name="drawerArrowStyle">@style/drawerArrowStyleWhite</item>
     </style>
 
-    <style name="BoardPageTheme3" parent="Base.Theme.TrelloCloneApp">
+    <style name="BoardPageTheme3" parent="Theme.TrelloCloneApp">
         <item name="actionBarTheme">@style/customActionBarTheme3</item>
         <item name="android:statusBarColor">@color/brdColor3</item>
-        <item name="titleTextColor">@color/white</item>
-        <item name="drawerArrowStyle">@style/drawerArrowStyleWhite</item>
     </style>
 
-    <style name="BoardPageTheme4" parent="Base.Theme.TrelloCloneApp">
+    <style name="BoardPageTheme4" parent="Theme.TrelloCloneApp">
         <item name="actionBarTheme">@style/customActionBarTheme4</item>
         <item name="android:statusBarColor">@color/brdColor4</item>
-        <item name="titleTextColor">@color/white</item>
-        <item name="drawerArrowStyle">@style/drawerArrowStyleWhite</item>
     </style>
 
-    <style name="BoardPageTheme5" parent="Base.Theme.TrelloCloneApp">
+    <style name="BoardPageTheme5" parent="Theme.TrelloCloneApp">
         <item name="actionBarTheme">@style/customActionBarTheme5</item>
         <item name="android:statusBarColor">@color/brdColor5</item>
-        <item name="titleTextColor">@color/white</item>
-        <item name="drawerArrowStyle">@style/drawerArrowStyleWhite</item>
     </style>
 
-    <style name="customActionBarTheme1">
+    <style name="customActionBarTheme1" parent="customActionBarTheme">
         <item name="android:background">@color/brdColor1</item>
-        <item name="android:textColorPrimary">@color/black</item>
-        <item name="fontFamily">@font/yellowtail</item>
     </style>
 
-    <style name="customActionBarTheme2">
+    <style name="customActionBarTheme2" parent="customActionBarTheme">
         <item name="android:background">@color/brdColor2</item>
-        <item name="android:textColorPrimary">@color/black</item>
-        <item name="fontFamily">@font/yellowtail</item>
     </style>
 
-    <style name="customActionBarTheme3">
+    <style name="customActionBarTheme3" parent="customActionBarTheme">
         <item name="android:background">@color/brdColor3</item>
-        <item name="android:textColorPrimary">@color/black</item>
-        <item name="fontFamily">@font/yellowtail</item>
     </style>
 
-    <style name="customActionBarTheme4">
+    <style name="customActionBarTheme4" parent="customActionBarTheme">
         <item name="android:background">@color/brdColor4</item>
-        <item name="android:textColorPrimary">@color/black</item>
-        <item name="fontFamily">@font/yellowtail</item>
     </style>
 
-    <style name="customActionBarTheme5">
+    <style name="customActionBarTheme5" parent="customActionBarTheme">
         <item name="android:background">@color/brdColor5</item>
-        <item name="android:textColorPrimary">@color/black</item>
-        <item name="fontFamily">@font/yellowtail</item>
     </style>
 
 </resources>

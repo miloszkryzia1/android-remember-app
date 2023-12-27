@@ -4,8 +4,10 @@ import android.content.Intent
 import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -30,7 +32,7 @@ class BoardActivity : AppCompatActivity() {
 
         //set board name
         val nameTxtView = findViewById<TextView>(R.id.name)
-        nameTxtView.text = intent.extras?.getString("boardName")
+        nameTxtView.text = board.name
 
         //Get board's task list
         val taskList = board.tasks
@@ -38,30 +40,28 @@ class BoardActivity : AppCompatActivity() {
         //Button func
         val btn = findViewById<Button>(R.id.addTaskButton)
         btn.setOnClickListener {
-            //TODO IMPLEMENT - ADD CREATE NEW TASK SCREEN
+            intent = Intent(this, NewTaskActivity::class.java)
+            intent.putExtra("boardId", board.id) //pass board ID to then retrieve label list
+            startActivity(intent)
         }
 
         val recView = findViewById<RecyclerView>(R.id.tasksRecView)
         recView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
-        //TODO: TEMP LIST FOR TESTING
-        taskList.addAll(
-            listOf(
-                TaskModel("chuj" ,"chuj", LabelModel("testlabel", R.color.white)),
-                TaskModel("chuj" ,"chuj", LabelModel("testlabel", R.color.white)),
-                TaskModel("chuj" ,"chuj", LabelModel("testlabel", R.color.white)),
-                TaskModel("chuj" ,"chuj", LabelModel("testlabel", R.color.white)))
-        )
-
-        recView.adapter = TaskListAdapter(taskList)
+        //TODO: ADD LIST AND ADAPTER FOR TASKS
 
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        //TODO: ADD MENU TO EDIT LABELS
+        //TODO: ADD MENU ITEM TO EDIT LABELS
 
         intent = Intent(this, BoardsListActivity::class.java)
         startActivity(intent)
+        return true
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.edit_labels_menu, menu)
         return true
     }
 

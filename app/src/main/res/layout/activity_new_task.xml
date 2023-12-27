@@ -50,7 +50,7 @@
         app:layout_constraintStart_toStartOf="@+id/editTextTaskName"
         app:layout_constraintTop_toBottomOf="@+id/editTextTaskName" />
 
-    <!-- TODO: FORMAT SPINNER -->
+    <!-- TODO: FORMAT SPINNER, ADD ADAPTER -->
     <Spinner
         android:id="@+id/labelPickerSpinner"
         android:layout_width="wrap_content"

@@ -7,10 +7,13 @@
 
     <style name="Theme.TrelloCloneApp" parent="Base.Theme.TrelloCloneApp">
         <item name="actionBarTheme">@style/customActionBarTheme</item>
+        <item name="actionBarPopupTheme">@style/customPopupTheme</item>
         <item name="android:statusBarColor">@color/primary</item>
         <item name="titleTextColor">@color/white</item>
         <item name="drawerArrowStyle">@style/drawerArrowStyleWhite</item>
         <item name="title">Remember</item>
+        <item name="homeAsUpIndicator">@drawable/arrow_back</item>
+        <item name="actionOverflowButtonStyle">@style/optionsMenuIconStyle</item>
     </style>
 
     <style name="customActionBarTheme">
@@ -28,6 +31,15 @@
         <item name="color">@color/white</item>
     </style>
 
-    <!--TODO: CHANGE BACK ARROW COLOR TO WHITE -->
+    <style name="customPopupTheme" parent="ThemeOverlay.MaterialComponents.Dark">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:backgroundTint">@color/second_bg</item>
+        <item name="fontFamily">@font/urbanist</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginBottom">0dp</item>
+    </style>
 
+    <style name="optionsMenuIconStyle" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:tint">@color/white</item>
+    </style>
 </resources>

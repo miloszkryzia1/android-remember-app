@@ -52,7 +52,6 @@ class NewBoardActivity : AppCompatActivity() {
     }
 
     private fun cancelButtonPressed() {
-        //TODO: ADD MORE PAGES TO GO BACK TO AS NEEDED
         when (intent.extras?.getString("previous")) {
             "main" -> {
                 intent = Intent(this, MainActivity::class.java)
@@ -96,7 +95,6 @@ class NewBoardActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        //TODO: ADD MORE PAGES TO GO BACK TO AS NEEDED
         when (intent.extras?.getString("previous")) {
             "main" -> {
                 intent = Intent(this, MainActivity::class.java)
