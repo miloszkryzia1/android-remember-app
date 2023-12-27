@@ -38,11 +38,9 @@ class BoardActivity : AppCompatActivity() {
         //Button func
         val btn = findViewById<Button>(R.id.addTaskButton)
         btn.setOnClickListener {
-            //TODO IMPLEMENT
+            //TODO IMPLEMENT - ADD CREATE NEW TASK SCREEN
         }
 
-
-        //TODO LOGIC FOR RECYCLER VIEW
         val recView = findViewById<RecyclerView>(R.id.tasksRecView)
         recView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
@@ -60,6 +58,8 @@ class BoardActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        //TODO: ADD MENU TO EDIT LABELS
+
         intent = Intent(this, BoardsListActivity::class.java)
         startActivity(intent)
         return true

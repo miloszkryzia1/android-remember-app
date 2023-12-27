@@ -3,6 +3,7 @@ package com.example.trellocloneapp.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
@@ -13,9 +14,11 @@ class TaskListAdapter(private var items: List<TaskModel>): Adapter<TaskListAdapt
 
     inner class TaskViewHolder(itemView: View): ViewHolder(itemView) {
         //TODO: ADD THE REST OF PARAMS
+        val checkBox: CheckBox?
         val txt: TextView?
         init {
             txt = itemView.findViewById(R.id.taskNameTxt)
+            checkBox = itemView.findViewById(R.id.checkBox)
         }
     }
 

@@ -32,6 +32,7 @@
 
     </androidx.cardview.widget.CardView>
 
+    <!-- TODO: SET THE RIGHT COLOR OF CHECKBOX -->
     <CheckBox
         android:id="@+id/checkBox"
         android:layout_width="73dp"
@@ -40,6 +41,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/cardView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:checked="false"
+        app:buttonTint="@color/primary" />
+
+    <!-- TODO: ADD THE REST OF STYLING: COLORS and CHANGING WHEN CHECKED -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
