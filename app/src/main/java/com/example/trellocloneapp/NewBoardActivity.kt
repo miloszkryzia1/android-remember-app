@@ -108,4 +108,12 @@ class NewBoardActivity : AppCompatActivity() {
         return true
         //return super.onOptionsItemSelected(item)
     }
+
+    private fun openBoard(board: BoardModel) {
+        intent = Intent(this, BoardActivity::class.java)
+        intent.putExtra("boardName", board.name)
+        intent.putExtra("previous", "boards")
+        intent.putExtra("boardId", board.id)
+        startActivity(intent)
+    }
 }

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.FrameLayout
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.trellocloneapp.fragments.BoardFragment
@@ -16,7 +17,7 @@ import com.google.android.material.navigation.NavigationView
 class MainActivity : AppCompatActivity() {
 
     companion object {
-        val boardList = mutableListOf<BoardModel>()
+        val boardList = mutableListOf<BoardModel>() //TODO: MAYBE MOVE THIS TO BoardsListActivity
         var mostRecentBoard: BoardModel? = null
     }
 
@@ -31,6 +32,10 @@ class MainActivity : AppCompatActivity() {
             trans.add(R.id.mostRecentBoardFrame, NoBoardFragment()).commit()
         }
         else {
+            val frame = findViewById<FrameLayout>(R.id.mostRecentBoardFrame)
+
+            frame.setOnClickListener { openBoard(mostRecentBoard!!) }
+
             val args = Bundle()
             args.putString("name", mostRecentBoard!!.name)
             args.putInt("color", mostRecentBoard!!.color)
@@ -73,6 +78,14 @@ class MainActivity : AppCompatActivity() {
     private fun openNewBoardScreen() {
         intent = Intent(this, NewBoardActivity::class.java)
         intent.putExtra("previous", "main")
+        startActivity(intent)
+    }
+
+    private fun openBoard(board: BoardModel) {
+        intent = Intent(this, BoardActivity::class.java)
+        intent.putExtra("boardName", board.name)
+        intent.putExtra("previous", "main")
+        intent.putExtra("boardId", board.id)
         startActivity(intent)
     }
 

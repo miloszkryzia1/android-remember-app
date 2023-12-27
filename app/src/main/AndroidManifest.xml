@@ -13,6 +13,9 @@
         android:theme="@style/Theme.TrelloCloneApp"
         tools:targetApi="31">
         <activity
+            android:name=".LabelListActivity"
+            android:exported="false" />
+        <activity
             android:name=".NewTaskActivity"
             android:exported="false" />
         <activity

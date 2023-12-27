@@ -12,4 +12,13 @@
     <color name="brdColor3">#d9c13d</color>
     <color name="brdColor4">#d9543d</color>
     <color name="brdColor5">#9e61c9</color>
+
+    <!-- LABEL COLORS -->
+    <color name="lblColor1">#B14949</color>
+    <color name="lblColor2">#48A7D6</color>
+    <color name="lblColor3">#51C513</color>
+    <color name="lblColor4">#CFCC17</color>
+    <color name="lblColor5">#AB47C3</color>
+    <color name="lblColor6">#A5A5A5</color>
+
 </resources>

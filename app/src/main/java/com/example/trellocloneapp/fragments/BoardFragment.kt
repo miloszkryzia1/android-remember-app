@@ -34,8 +34,6 @@ class BoardFragment(var board: BoardModel) : Fragment() {
             R.color.brdColor5 -> colorImg.setImageResource(R.drawable.brd_color_shape_5)
         }
 
-        // TODO: SET ON CLICK LISTENER TO OPEN BOARD
-
         return view
     }
 }

@@ -12,16 +12,19 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.trellocloneapp.adapters.TaskListAdapter
+import com.example.trellocloneapp.models.BoardModel
 import com.example.trellocloneapp.models.LabelModel
 import com.example.trellocloneapp.models.TaskModel
 
 class BoardActivity : AppCompatActivity() {
 
+    var board: BoardModel? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         //Get board reference
-        val board = MainActivity.boardList.find { it.id == intent.extras?.getInt("boardId") }
+        board = MainActivity.boardList.find { it.id == intent.extras?.getInt("boardId") }
+        MainActivity.mostRecentBoard = board
 
         //set action bar colors
         setColors(board!!.color)
@@ -32,16 +35,18 @@ class BoardActivity : AppCompatActivity() {
 
         //set board name
         val nameTxtView = findViewById<TextView>(R.id.name)
-        nameTxtView.text = board.name
+        nameTxtView.text = board!!.name
 
         //Get board's task list
-        val taskList = board.tasks
+        val taskList = board!!.tasks
 
         //Button func
         val btn = findViewById<Button>(R.id.addTaskButton)
         btn.setOnClickListener {
+            val previous = intent.extras?.getString("previous")
             intent = Intent(this, NewTaskActivity::class.java)
-            intent.putExtra("boardId", board.id) //pass board ID to then retrieve label list
+            intent.putExtra("boardId", board!!.id) //pass board ID to then retrieve label list
+            intent.putExtra("previous", previous)
             startActivity(intent)
         }
 
@@ -53,10 +58,24 @@ class BoardActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        //TODO: ADD MENU ITEM TO EDIT LABELS
-
-        intent = Intent(this, BoardsListActivity::class.java)
-        startActivity(intent)
+        if (item.itemId == R.id.editLblsItem) {
+            val previous = intent.extras?.getString("previous")
+            intent = Intent(this, LabelListActivity::class.java)
+            intent.putExtra("boardId", board!!.id) //pass board ID to then retrieve label list
+            intent.putExtra("previous", previous)
+            startActivity(intent)
+            return true
+        }
+        when (intent.extras?.getString("previous")) {
+            "main" -> {
+                intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+            "boards" -> {
+                intent = Intent(this, BoardsListActivity::class.java)
+                startActivity(intent)
+            }
+        }
         return true
     }
 
