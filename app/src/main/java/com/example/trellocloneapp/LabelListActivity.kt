@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -44,6 +45,12 @@ class LabelListActivity : AppCompatActivity() {
             LabelModel("Label 6", R.color.lblColor6),
         )
         recView.adapter = LabelListAdapter(labelList)
+
+        //btn func
+        val btn = findViewById<Button>(R.id.addLabelButton)
+        btn.setOnClickListener{
+            //TODO: ADD NEW LABEL PAGE
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

@@ -23,7 +23,7 @@ class NewTaskActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        //TODO: ADD ALL LOGIC
+        //TODO: ADD ALL LOGIC AND LABEL SELECTOR
 
 
 
