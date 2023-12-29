@@ -49,7 +49,9 @@ class LabelListActivity : AppCompatActivity() {
         //btn func
         val btn = findViewById<Button>(R.id.addLabelButton)
         btn.setOnClickListener{
-            //TODO: ADD NEW LABEL PAGE
+            //TODO: ADD NECESSARY EXTRAS
+            intent = Intent(this, NewLabelActivity::class.java)
+            startActivity(intent)
         }
     }
 
