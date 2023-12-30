@@ -17,7 +17,7 @@ import com.google.android.material.navigation.NavigationView
 class MainActivity : AppCompatActivity() {
 
     companion object {
-        val boardList = mutableListOf<BoardModel>() //TODO: MAYBE MOVE THIS TO BoardsListActivity
+        val boardList = mutableListOf<BoardModel>()
         var mostRecentBoard: BoardModel? = null
     }
 

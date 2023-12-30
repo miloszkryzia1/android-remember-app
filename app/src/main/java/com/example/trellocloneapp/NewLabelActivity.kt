@@ -4,11 +4,15 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.trellocloneapp.adapters.LabelColorAdapter
 import com.example.trellocloneapp.models.BoardModel
+import com.example.trellocloneapp.models.LabelModel
 
 class NewLabelActivity : AppCompatActivity() {
 
@@ -36,6 +40,37 @@ class NewLabelActivity : AppCompatActivity() {
             R.color.lblColor6
         )
         recView.adapter = LabelColorAdapter(colorList)
+
+        //cancel btn func
+        val cancelBtn = findViewById<Button>(R.id.cancelButton)
+        cancelBtn.setOnClickListener {
+            val brdId = board!!.id
+            val previous = intent.extras?.getString("previous")
+            intent = Intent(this, LabelListActivity::class.java)
+            intent.putExtra("boardId", brdId)
+            intent.putExtra("previous", previous)
+            startActivity(intent)
+        }
+
+        //create btn func
+        val createBtn = findViewById<Button>(R.id.createButton)
+        createBtn.setOnClickListener {
+            val name = findViewById<EditText>(R.id.lblNameEdtTxt)
+            var color = (recView.adapter as LabelColorAdapter).selectedColor
+            if (name.text.toString() == "") {
+                Toast.makeText(this, "You must enter a label name!", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                if (color == null) { color = R.color.lblColor1 }
+                board!!.labels.add(LabelModel(name.text.toString(), color))
+                val brdId = board!!.id
+                val previous = intent.extras?.getString("previous")
+                intent = Intent(this, LabelListActivity::class.java)
+                intent.putExtra("boardId", brdId)
+                intent.putExtra("previous", previous)
+                startActivity(intent)
+            }
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.trellocloneapp.adapters.LabelColorAdapter
 import com.example.trellocloneapp.adapters.LabelListAdapter
 import com.example.trellocloneapp.models.BoardModel
 import com.example.trellocloneapp.models.LabelModel
@@ -35,23 +36,15 @@ class LabelListActivity : AppCompatActivity() {
 
         val recView = findViewById<RecyclerView>(R.id.recViewLabels)
         recView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        //TODO: TEMP LIST FOR TESTING
-        val labelList = listOf(
-            LabelModel("Label 1", R.color.lblColor1),
-            LabelModel("Label 2", R.color.lblColor2),
-            LabelModel("Label 3", R.color.lblColor3),
-            LabelModel("Label 4", R.color.lblColor4),
-            LabelModel("Label 5", R.color.lblColor5),
-            LabelModel("Label 6", R.color.lblColor6),
-        )
-        recView.adapter = LabelListAdapter(labelList)
+        recView.adapter = LabelListAdapter(board!!.labels)
 
         //btn func
         val btn = findViewById<Button>(R.id.addLabelButton)
         btn.setOnClickListener{
+            val previous = intent.extras?.getString("previous")
             intent = Intent(this, NewLabelActivity::class.java)
             intent.putExtra("boardId", board!!.id)
-            intent.putExtra("previous", intent.extras?.getString("previous"))
+            intent.putExtra("previous", previous)
             startActivity(intent)
         }
     }

@@ -26,13 +26,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="14dp"
+        android:fontFamily="@font/urbanist"
         android:hint="New Label Name"
         android:inputType="text"
         android:textColorHint="@color/second_bg"
+        android:textSize="45sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblNameTxt"
-        android:fontFamily="@font/urbanist"
-        android:textSize="45sp"/>
+        app:layout_constraintTop_toBottomOf="@+id/lblNameTxt" />
 
     <TextView
         android:id="@+id/lblColorTxt"
@@ -56,6 +56,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblColorTxt" />
 
-    <!-- TODO: ADD BUTTONS -->
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:backgroundTint="@color/second_bg"
+        android:fontFamily="@font/urbanist"
+        android:text="@string/cancel"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/createButton"
+        app:layout_constraintEnd_toStartOf="@+id/createButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/createButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="112dp"
+        android:backgroundTint="@color/primary"
+        android:fontFamily="@font/urbanist"
+        android:text="@string/create"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cancelButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
