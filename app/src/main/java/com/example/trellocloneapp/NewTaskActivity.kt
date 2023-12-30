@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.Spinner
+import com.example.trellocloneapp.adapters.LabelPickerAdapter
 import com.example.trellocloneapp.models.BoardModel
 
 class NewTaskActivity : AppCompatActivity() {
@@ -23,8 +25,11 @@ class NewTaskActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        //TODO: ADD ALL LOGIC AND LABEL SELECTOR
 
+        //Spinner for label select
+        //TODO: FIGURE OUT WHY NOT VISIBLE IN UI
+        val lblPickerSpinner = findViewById<Spinner>(R.id.labelPickerSpinner)
+        lblPickerSpinner.adapter = LabelPickerAdapter(board!!.labels)
 
 
         //cancel button func
