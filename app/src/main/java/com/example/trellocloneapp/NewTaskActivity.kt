@@ -7,6 +7,8 @@ import android.view.MenuItem
 import android.widget.Button
 import android.widget.Spinner
 import com.example.trellocloneapp.adapters.LabelPickerAdapter
+import com.example.trellocloneapp.fragments.LabelPickerFragment
+import com.example.trellocloneapp.fragments.NoLabelFragment
 import com.example.trellocloneapp.models.BoardModel
 
 class NewTaskActivity : AppCompatActivity() {
@@ -25,12 +27,18 @@ class NewTaskActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-
-        //Spinner for label select
-        //TODO: FIGURE OUT WHY NOT VISIBLE IN UI
-        val lblPickerSpinner = findViewById<Spinner>(R.id.labelPickerSpinner)
-        lblPickerSpinner.adapter = LabelPickerAdapter(board!!.labels)
-
+        //Display either no labels message or a label picker
+        val trans = supportFragmentManager.beginTransaction()
+        if (board!!.labels.isEmpty()) {
+            trans.replace(R.id.labelPickerFrame, NoLabelFragment()).commit()
+        }
+        else {
+            val frag = LabelPickerFragment()
+            val args = Bundle()
+            args.putInt("boardId", board!!.id)
+            frag.arguments = args
+            trans.replace(R.id.labelPickerFrame, frag).commit()
+        }
 
         //cancel button func
         val cancelBtn = findViewById<Button>(R.id.cancelButton)

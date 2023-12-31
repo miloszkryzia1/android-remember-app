@@ -41,12 +41,12 @@
         android:id="@+id/txtViewLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="18dp"
+        android:layout_marginBottom="17dp"
         android:fontFamily="@font/urbanist"
         android:text="Label"
         android:textColor="@color/white"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/labelPickerSpinner"
+        app:layout_constraintBottom_toTopOf="@+id/labelPickerFrame"
         app:layout_constraintStart_toStartOf="@+id/editTextTaskName"
         app:layout_constraintTop_toBottomOf="@+id/editTextTaskName" />
 
@@ -54,19 +54,18 @@
 
 
     <!-- TODO: FORMAT DESC TEXT -->
-    <Spinner
-        android:id="@+id/labelPickerSpinner"
-        android:layout_width="0dp"
+
+    <FrameLayout
+        android:id="@+id/labelPickerFrame"
+        android:layout_width="351dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="27dp"
-        android:popupBackground="@color/transparent"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="13dp"
         app:layout_constraintBottom_toTopOf="@+id/editTextDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtViewLabel"
-        android:background="@color/transparent"/>
+        app:layout_constraintTop_toBottomOf="@+id/txtViewLabel" />
 
     <EditText
         android:id="@+id/editTextDescription"
@@ -74,7 +73,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="127dp"
+        android:layout_marginBottom="126dp"
         android:ems="10"
         android:fontFamily="@font/urbanist"
         android:gravity="start|top"
@@ -84,7 +83,7 @@
         app:layout_constraintBottom_toTopOf="@+id/cancelButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/labelPickerSpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/labelPickerFrame" />
 
     <Button
         android:id="@+id/cancelButton"
