@@ -41,7 +41,7 @@
         android:id="@+id/txtViewLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="17dp"
+        android:layout_marginBottom="18dp"
         android:fontFamily="@font/urbanist"
         android:text="Label"
         android:textColor="@color/white"
@@ -51,25 +51,30 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextTaskName" />
 
     <!-- TODO: FORMAT SPINNER, ADD ADAPTER -->
-    <Spinner
-        android:id="@+id/labelPickerSpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextDescription"
-        app:layout_constraintStart_toStartOf="@+id/txtViewLabel"
-        app:layout_constraintTop_toBottomOf="@+id/txtViewLabel"
-        android:popupBackground="#00000000"/>
 
 
     <!-- TODO: FORMAT DESC TEXT -->
+    <Spinner
+        android:id="@+id/labelPickerSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="27dp"
+        android:popupBackground="@color/transparent"
+        app:layout_constraintBottom_toTopOf="@+id/editTextDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewLabel"
+        android:background="@color/transparent"/>
+
     <EditText
         android:id="@+id/editTextDescription"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="126dp"
+        android:layout_marginBottom="127dp"
         android:ems="10"
         android:fontFamily="@font/urbanist"
         android:gravity="start|top"
@@ -87,7 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="11dp"
         android:layout_marginEnd="21dp"
-        android:layout_marginBottom="55dp"
+        android:layout_marginBottom="54dp"
         android:backgroundTint="@color/second_bg"
         android:fontFamily="@font/urbanist"
         android:text="@string/cancel"

@@ -20,5 +20,6 @@
     <color name="lblColor4">#CFCC17</color>
     <color name="lblColor5">#AB47C3</color>
     <color name="lblColor6">#A5A5A5</color>
+    <color name="transparent">#00000000</color>
 
 </resources>
