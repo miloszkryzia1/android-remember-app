@@ -50,21 +50,15 @@
         app:layout_constraintStart_toStartOf="@+id/editTextTaskName"
         app:layout_constraintTop_toBottomOf="@+id/editTextTaskName" />
 
-    <!-- TODO: FORMAT SPINNER, ADD ADAPTER -->
-
-
-    <!-- TODO: FORMAT DESC TEXT -->
-
     <FrameLayout
         android:id="@+id/labelPickerFrame"
         android:layout_width="351dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="13dp"
         app:layout_constraintBottom_toTopOf="@+id/editTextDescription"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/txtViewLabel"
         app:layout_constraintTop_toBottomOf="@+id/txtViewLabel" />
 
     <EditText

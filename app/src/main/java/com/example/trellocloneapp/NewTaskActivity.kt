@@ -5,11 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Spinner
+import android.widget.Toast
 import com.example.trellocloneapp.adapters.LabelPickerAdapter
 import com.example.trellocloneapp.fragments.LabelPickerFragment
 import com.example.trellocloneapp.fragments.NoLabelFragment
 import com.example.trellocloneapp.models.BoardModel
+import com.example.trellocloneapp.models.LabelModel
+import com.example.trellocloneapp.models.TaskModel
 
 class NewTaskActivity : AppCompatActivity() {
 
@@ -40,23 +44,34 @@ class NewTaskActivity : AppCompatActivity() {
             trans.replace(R.id.labelPickerFrame, frag).commit()
         }
 
+        //create button func
+        val createBtn = findViewById<Button>(R.id.createButton)
+        createBtn.setOnClickListener {
+            val name = findViewById<EditText>(R.id.editTextTaskName).text?.toString()
+            if (name != "") {
+                val desc = findViewById<EditText>(R.id.editTextDescription).text.toString()
+                var label: LabelModel? = null
+                if (board!!.labels.isNotEmpty()) {
+                    val frag = supportFragmentManager.findFragmentById(R.id.labelPickerFrame) as LabelPickerFragment
+                    label = frag.currentLabel
+                }
+                board!!.tasks.add(TaskModel(name!!, desc, label))
+                navigateBack()
+            }
+            else {
+                Toast.makeText(this, "You must enter a task name", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         //cancel button func
         val cancelBtn = findViewById<Button>(R.id.cancelButton)
         cancelBtn.setOnClickListener{
-            val previous = intent.extras?.getString("previous")
-            intent = Intent(this, BoardActivity::class.java)
-            intent.putExtra("boardId", board?.id)
-            intent.putExtra("previous", previous)
-            startActivity(intent)
+            navigateBack()
         }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val previous = intent.extras?.getString("previous")
-        intent = Intent(this, BoardActivity::class.java)
-        intent.putExtra("boardId", board?.id)
-        intent.putExtra("previous", previous)
-        startActivity(intent)
+        navigateBack()
         return true
     }
     private fun setColors(color: Int) {
@@ -79,4 +94,11 @@ class NewTaskActivity : AppCompatActivity() {
         }
     }
 
+    private fun navigateBack() {
+        val previous = intent.extras?.getString("previous")
+        intent = Intent(this, BoardActivity::class.java)
+        intent.putExtra("boardId", board?.id)
+        intent.putExtra("previous", previous)
+        startActivity(intent)
+    }
 }
