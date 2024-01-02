@@ -14,6 +14,7 @@
         <item name="title">Remember</item>
         <item name="homeAsUpIndicator">@drawable/arrow_back</item>
         <item name="actionOverflowButtonStyle">@style/optionsMenuIconStyle</item>
+        <item name="android:contextPopupMenuStyle">@style/contextMenuStyle</item>
     </style>
 
     <style name="customActionBarTheme">
@@ -41,5 +42,10 @@
 
     <style name="optionsMenuIconStyle" parent="Widget.AppCompat.ActionButton.Overflow">
         <item name="android:tint">@color/white</item>
+    </style>
+
+    <style name="contextMenuStyle" parent="Widget.Material3.PopupMenu.ContextMenu">
+        <item name="android:popupBackground">@color/second_bg</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 </resources>

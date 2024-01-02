@@ -1,24 +1,29 @@
 package com.example.trellocloneapp.adapters
 
 import android.view.LayoutInflater
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView.AdapterContextMenuInfo
 import android.widget.CheckBox
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.example.trellocloneapp.BoardActivity
 import com.example.trellocloneapp.R
 import com.example.trellocloneapp.models.TaskModel
 
-class TaskListAdapter(private var items: List<TaskModel>): Adapter<TaskListAdapter.TaskViewHolder>() {
+class TaskListAdapter(var items: MutableList<TaskModel>): Adapter<TaskListAdapter.TaskViewHolder>() {
 
+    var selectedItemPosition = -1
     inner class TaskViewHolder(itemView: View): ViewHolder(itemView) {
         //TODO: ADD THE REST OF PARAMS
-        val checkBox: CheckBox?
-        val txt: TextView?
+        val txtName: TextView?
+        val txtDesc: TextView?
         init {
-            txt = itemView.findViewById(R.id.taskNameTxt)
-            checkBox = itemView.findViewById(R.id.checkBox)
+            txtName = itemView.findViewById(R.id.taskNameTxt)
+            txtDesc = itemView.findViewById(R.id.taskDescTxt)
         }
     }
 
@@ -32,7 +37,18 @@ class TaskListAdapter(private var items: List<TaskModel>): Adapter<TaskListAdapt
     }
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
-        holder.txt?.text = items[position].name
+        holder.txtName?.text = items[position].name
+        var desc = items[position].description
+        if (desc.length > 30) {
+            desc = desc.substring(0, 31)
+            desc += "..."
+        }
+        holder.txtDesc?.text = desc
+        holder.itemView.setOnCreateContextMenuListener { menu, v, menuInfo ->
+            selectedItemPosition = position
+            val mi = MenuInflater(v.context)
+            mi.inflate(R.menu.task_context_menu, menu)
+        }
         //TODO: ADD THE REST OF PARAMS
     }
 

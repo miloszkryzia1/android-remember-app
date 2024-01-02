@@ -4,11 +4,17 @@ import android.content.Intent
 import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.ContextMenu
 import android.view.Menu
+import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
+import android.widget.AdapterView
+import android.widget.AdapterView.AdapterContextMenuInfo
 import android.widget.Button
 import android.widget.PopupMenu
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.trellocloneapp.adapters.TaskListAdapter
@@ -52,9 +58,7 @@ class BoardActivity : AppCompatActivity() {
 
         val recView = findViewById<RecyclerView>(R.id.tasksRecView)
         recView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-
-        //TODO: ADD LIST AND ADAPTER FOR TASKS
-
+        recView.adapter = TaskListAdapter(board!!.tasks)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -81,6 +85,20 @@ class BoardActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.edit_labels_menu, menu)
+        return true
+    }
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        val recView = findViewById<RecyclerView>(R.id.tasksRecView)
+        val adapter = recView.adapter as TaskListAdapter
+        val itemPosition = adapter.selectedItemPosition
+        if (item.itemId == R.id.actionCompleteTask) {
+            //TODO: IMPLEMENT MARK TASK AS COMPLETED
+        }
+        else if (item.itemId == R.id.actionRemoveTask) {
+            adapter.items.removeAt(itemPosition)
+            adapter.notifyItemRemoved(itemPosition)
+        }
         return true
     }
 
