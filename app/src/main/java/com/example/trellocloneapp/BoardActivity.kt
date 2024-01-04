@@ -93,7 +93,12 @@ class BoardActivity : AppCompatActivity() {
         val adapter = recView.adapter as TaskListAdapter
         val itemPosition = adapter.selectedItemPosition
         if (item.itemId == R.id.actionCompleteTask) {
-            //TODO: IMPLEMENT MARK TASK AS COMPLETED
+            adapter.items[itemPosition].completed = true
+            adapter.notifyItemChanged(itemPosition)
+        }
+        else if (item.itemId == R.id.actionUncompleteTask) {
+            adapter.items[itemPosition].completed = false
+            adapter.notifyItemChanged(itemPosition)
         }
         else if (item.itemId == R.id.actionRemoveTask) {
             adapter.items.removeAt(itemPosition)

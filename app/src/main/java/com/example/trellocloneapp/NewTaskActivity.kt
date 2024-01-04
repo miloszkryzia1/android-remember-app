@@ -55,7 +55,7 @@ class NewTaskActivity : AppCompatActivity() {
                     val frag = supportFragmentManager.findFragmentById(R.id.labelPickerFrame) as LabelPickerFragment
                     label = frag.currentLabel
                 }
-                board!!.tasks.add(TaskModel(name!!, desc, label))
+                board!!.tasks.add(TaskModel(name!!, desc, label, false))
                 navigateBack()
             }
             else {

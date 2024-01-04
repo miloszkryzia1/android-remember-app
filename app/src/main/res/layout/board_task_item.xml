@@ -51,13 +51,12 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/taskNameTxt"
                 app:layout_constraintTop_toBottomOf="@+id/taskNameTxt"
-                android:textAlignment="viewStart"/>
+                android:textAlignment="viewStart" />
+
+            <!-- TODO: ADD COLOR -->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
-
-
-    <!-- TODO: ADD THE REST OF STYLING: COLORS and CHANGING WHEN CHECKED -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

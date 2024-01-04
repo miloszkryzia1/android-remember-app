@@ -1,16 +1,15 @@
 package com.example.trellocloneapp.adapters
 
+import android.graphics.Color
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView.AdapterContextMenuInfo
-import android.widget.CheckBox
 import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.example.trellocloneapp.BoardActivity
 import com.example.trellocloneapp.R
 import com.example.trellocloneapp.models.TaskModel
 
@@ -38,18 +37,37 @@ class TaskListAdapter(var items: MutableList<TaskModel>): Adapter<TaskListAdapte
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         holder.txtName?.text = items[position].name
-        var desc = items[position].description
-        if (desc.length > 30) {
-            desc = desc.substring(0, 31)
-            desc += "..."
+        if (!items[position].completed) {
+            holder.txtName?.setTextColor(Color.WHITE)
+            var desc = items[position].description
+            if (desc.isEmpty()) {
+                holder.txtDesc?.isVisible = false
+            }
+            else {
+                if (desc.length > 30) {
+                    desc = desc.substring(0, 31)
+                    desc += "..."
+                }
+                holder.txtDesc?.text = desc
+            }
+            holder.itemView.setOnCreateContextMenuListener { menu, v, menuInfo ->
+                selectedItemPosition = position
+                val mi = MenuInflater(v.context)
+                mi.inflate(R.menu.task_context_menu_uncomplete, menu)
+            }
         }
-        holder.txtDesc?.text = desc
-        holder.itemView.setOnCreateContextMenuListener { menu, v, menuInfo ->
-            selectedItemPosition = position
-            val mi = MenuInflater(v.context)
-            mi.inflate(R.menu.task_context_menu, menu)
+        else {
+            holder.txtName?.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+            holder.txtName?.setTextColor(Color.parseColor("#575757")) //main_bg color in resource
+            holder.txtDesc?.isVisible = false
+            holder.itemView.setOnCreateContextMenuListener { menu, v, menuInfo ->
+                selectedItemPosition = position
+                val mi = MenuInflater(v.context)
+                mi.inflate(R.menu.task_context_menu_complete, menu)
+            }
         }
-        //TODO: ADD THE REST OF PARAMS
+
+        //TODO: ADD THE REST OF PARAMS - set color of task according to label
     }
 
 }
