@@ -23,6 +23,8 @@ class NewLabelActivity : AppCompatActivity() {
 
         board = MainActivity.boardList.find { it.id == intent.extras?.getInt("boardId") }
 
+        setColors(board!!.color)
+
         setContentView(R.layout.activity_new_label)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -81,5 +83,25 @@ class NewLabelActivity : AppCompatActivity() {
         intent.putExtra("previous", previous)
         startActivity(intent)
         return true
+    }
+
+    private fun setColors(color: Int) {
+        when (color) {
+            R.color.brdColor1 ->{
+                setTheme(R.style.BoardPageTheme1)
+            }
+            R.color.brdColor2 ->{
+                setTheme(R.style.BoardPageTheme2)
+            }
+            R.color.brdColor3 ->{
+                setTheme(R.style.BoardPageTheme3)
+            }
+            R.color.brdColor4 ->{
+                setTheme(R.style.BoardPageTheme4)
+            }
+            R.color.brdColor5 ->{
+                setTheme(R.style.BoardPageTheme5)
+            }
+        }
     }
 }
