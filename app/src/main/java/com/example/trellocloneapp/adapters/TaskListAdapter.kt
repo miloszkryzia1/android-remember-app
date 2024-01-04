@@ -23,6 +23,7 @@ class TaskListAdapter(var items: MutableList<TaskModel>): Adapter<TaskListAdapte
         val txtName: TextView?
         val txtDesc: TextView?
         val colorCard: CardView?
+        var descShowing = false
         init {
             txtName = itemView.findViewById(R.id.taskNameTxt)
             txtDesc = itemView.findViewById(R.id.taskDescTxt)
@@ -41,18 +42,33 @@ class TaskListAdapter(var items: MutableList<TaskModel>): Adapter<TaskListAdapte
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         holder.txtName?.text = items[position].name
+        //set text appearance
         if (!items[position].completed) {
             holder.txtName?.setTextColor(Color.WHITE)
             var desc = items[position].description
+            var displayedDesc = desc
             if (desc.isEmpty()) {
                 holder.txtDesc?.isVisible = false
             }
             else {
                 if (desc.length > 30) {
-                    desc = desc.substring(0, 31)
-                    desc += "..."
+                    displayedDesc = desc.substring(0, 31)
+                    displayedDesc += "..."
                 }
-                holder.txtDesc?.text = desc
+                holder.txtDesc?.text = displayedDesc
+            }
+            holder.itemView.setOnClickListener {
+                holder.descShowing = !holder.descShowing
+                if (!holder.descShowing) {
+                    if (desc.length > 30) {
+                        displayedDesc = desc.substring(0, 31)
+                        displayedDesc += "..."
+                    }
+                }
+                else {
+                    displayedDesc = desc
+                }
+                holder.txtDesc?.text = displayedDesc
             }
             holder.itemView.setOnCreateContextMenuListener { menu, v, menuInfo ->
                 selectedItemPosition = position
@@ -70,6 +86,8 @@ class TaskListAdapter(var items: MutableList<TaskModel>): Adapter<TaskListAdapte
                 mi.inflate(R.menu.task_context_menu_complete, menu)
             }
         }
+
+        //Set color
         if (items[position].label != null) {
             val color = ContextCompat.getColor(holder.itemView.context, items[position].label!!.color)
             holder.colorCard?.setCardBackgroundColor(color)
