@@ -19,41 +19,45 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:padding="5dp">
 
             <TextView
                 android:id="@+id/taskNameTxt"
-                android:layout_width="397dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="26dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginBottom="4dp"
+                android:layout_width="264dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="12dp"
                 android:fontFamily="@font/urbanist"
                 android:text="Task Name"
                 android:textAlignment="viewStart"
                 android:textColor="@color/white"
                 android:textSize="30sp"
-                app:layout_constraintBottom_toTopOf="@+id/taskDescTxt"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed"
-                app:layout_goneMarginTop="10dp" />
+                app:layout_constraintStart_toEndOf="@+id/taskColorCard"
+                app:layout_constraintTop_toTopOf="@+id/taskColorCard" />
 
             <TextView
                 android:id="@+id/taskDescTxt"
-                android:layout_width="411dp"
+                android:layout_width="342dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:fontFamily="@font/urbanist"
                 android:text="Beginning of task description..."
+                android:textAlignment="viewStart"
                 android:textColor="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/taskColorCard"
                 app:layout_constraintStart_toStartOf="@+id/taskNameTxt"
-                app:layout_constraintTop_toBottomOf="@+id/taskNameTxt"
-                android:textAlignment="viewStart" />
+                app:layout_constraintTop_toBottomOf="@+id/taskNameTxt" />
 
-            <!-- TODO: ADD COLOR -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/taskColorCard"
+                android:layout_width="20dp"
+                android:layout_height="0dp"
+                android:layout_marginVertical="5dp"
+                android:layout_marginStart="8dp"
+                app:cardBackgroundColor="@color/lblColor1"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

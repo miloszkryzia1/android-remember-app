@@ -1,5 +1,6 @@
 package com.example.trellocloneapp.adapters
 
+import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.Paint
 import android.view.LayoutInflater
@@ -7,6 +8,8 @@ import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
@@ -17,12 +20,13 @@ class TaskListAdapter(var items: MutableList<TaskModel>): Adapter<TaskListAdapte
 
     var selectedItemPosition = -1
     inner class TaskViewHolder(itemView: View): ViewHolder(itemView) {
-        //TODO: ADD THE REST OF PARAMS
         val txtName: TextView?
         val txtDesc: TextView?
+        val colorCard: CardView?
         init {
             txtName = itemView.findViewById(R.id.taskNameTxt)
             txtDesc = itemView.findViewById(R.id.taskDescTxt)
+            colorCard = itemView.findViewById(R.id.taskColorCard)
         }
     }
 
@@ -66,8 +70,13 @@ class TaskListAdapter(var items: MutableList<TaskModel>): Adapter<TaskListAdapte
                 mi.inflate(R.menu.task_context_menu_complete, menu)
             }
         }
-
-        //TODO: ADD THE REST OF PARAMS - set color of task according to label
+        if (items[position].label != null) {
+            val color = ContextCompat.getColor(holder.itemView.context, items[position].label!!.color)
+            holder.colorCard?.setCardBackgroundColor(color)
+        }
+        else {
+            holder.colorCard?.setCardBackgroundColor(Color.parseColor("#575757"))
+        }
     }
 
 }
