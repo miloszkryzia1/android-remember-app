@@ -4,7 +4,7 @@
 _This is a personal learning/portfolio project._
 
 This Android application is inspired by and features similar functionality to Trello.
-The user is able to create _boards_ in which they can add tasks. Each board can include a list of labels, and each task can be assigned a label. Each label has its own name and color.
+The user is able to create _boards_ in which they can add _tasks_. Each board can include a list of _labels_, and each task can be assigned a label. Each label has its own name and color.
 Aside from labels, tasks can also include a description. 
 
 Some Android development concepts used to build this app are: DrawerLayout, CardView, Fragments, Menus, Navigation using Intents, Styles including a custom Action Bar and status bar, overall UI design in XML, custom drawables, RecyclerView, other Adapter Views.  
